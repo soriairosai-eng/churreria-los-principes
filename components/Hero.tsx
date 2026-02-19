@@ -1,16 +1,18 @@
 
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const Hero: React.FC = () => {
   return (
     <section id="inicio" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Cinematic Background Overlay */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
-      
+
       {/* Background Image - Boutique Atmosphere */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center scale-105 animate-[slow-zoom_20s_infinite_alternate]"
-        style={{ 
+        style={{
           backgroundImage: 'url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop")',
         }}
       ></div>
@@ -20,16 +22,16 @@ const Hero: React.FC = () => {
           Desde Siempre en Córdoba
         </p>
         <h1 className="text-5xl md:text-8xl text-white font-serif mb-8 leading-tight animate-fadeInUp">
-          El Ritual de la Mañana, <br /> 
+          El Ritual de la Mañana, <br />
           <span className="italic">Elevado</span>
         </h1>
         <p className="text-white/90 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed animate-fadeInUp delay-200">
           En el corazón del Barrio de Fátima, transformamos agua, harina y fuego en una experiencia de lujo artesanal.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <a href="#menu" className="bg-[#C5A059] text-[#2D1B14] px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:bg-white transition-all w-full sm:w-auto text-center">
-            Explorar Menú
-          </a>
+          <Link to="/carta" className="bg-[#C5A059] text-[#2D1B14] px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:bg-white transition-all w-full sm:w-auto text-center">
+            Ver Carta Completa
+          </Link>
           <a href="#artesania" className="border border-white text-white px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:bg-white hover:text-[#2D1B14] transition-all w-full sm:w-auto text-center">
             Nuestra Historia
           </a>
