@@ -23,28 +23,27 @@ const MenuPage: React.FC = () => {
                     <span className="italic font-serif text-2xl text-chocolate/80">Todo preparado al momento para ti.</span>
                 </p>
 
-                {/* Liquid Glass Summary Table */}
-                <div className="relative max-w-5xl mx-auto animate-fadeInUp delay-300">
-                    {/* Glass Effect Layer */}
-                    <div className="absolute inset-0 bg-white/60 backdrop-blur-xl rounded-3xl shadow-2xl shadow-chocolate/5 border border-white/50 -z-10"></div>
+                {/* Premium Paper Summary Table */}
+                <div className="relative max-w-4xl mx-auto animate-fadeInUp delay-300">
+                    <div className="bg-white p-8 md:p-16 shadow-2xl shadow-chocolate/10 text-left relative overflow-hidden h-full">
+                        {/* Decorative Top Border */}
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
 
-                    <div className="p-8 md:p-12 text-left">
-                        <div className="flex items-center justify-center mb-10">
-                            <div className="h-[1px] w-12 bg-gold/30"></div>
-                            <h3 className="mx-6 text-3xl font-serif text-chocolate italic">Precios Generales</h3>
-                            <div className="h-[1px] w-12 bg-gold/30"></div>
+                        <div className="flex items-center justify-center mb-12">
+                            <span className="h-[1px] w-12 bg-chocolate/10"></span>
+                            <h3 className="mx-6 text-3xl font-serif text-chocolate tracking-wide uppercase">Precios Generales</h3>
+                            <span className="h-[1px] w-12 bg-chocolate/10"></span>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
                             {/* Column 1 */}
-                            <div className="space-y-10">
+                            <div className="space-y-12">
                                 <div>
-                                    <h4 className="flex items-center text-gold font-bold uppercase text-xs tracking-[0.25em] mb-6">
-                                        <span className="w-2 h-2 rounded-full bg-gold mr-3"></span>
+                                    <h4 className="text-gold font-bold uppercase text-[11px] tracking-[0.3em] mb-6 border-b border-gold/20 pb-2">
                                         Bebidas
                                     </h4>
                                     <table className="w-full text-sm">
-                                        <tbody className="divide-y divide-chocolate/5">
+                                        <tbody className="divide-y divide-dotted divide-stone/20">
                                             {[
                                                 { name: 'Café', price: '1,10 €' },
                                                 { name: 'Café bombón', price: '1,50 €' },
@@ -54,8 +53,8 @@ const MenuPage: React.FC = () => {
                                                 { name: 'Zumo natural', price: '1,80 €' },
                                                 { name: 'Botella agua', price: '1,00 €' },
                                             ].map((item, idx) => (
-                                                <tr key={idx} className="group transition-colors hover:bg-gold/5">
-                                                    <td className="py-3 text-stone font-medium group-hover:text-chocolate transition-colors">{item.name}</td>
+                                                <tr key={idx} className="group hover:bg-gold/5 transition-colors cursor-text">
+                                                    <td className="py-3 text-stone group-hover:text-chocolate font-sans">{item.name}</td>
                                                     <td className="py-3 text-right font-serif font-bold text-lg text-chocolate">{item.price}</td>
                                                 </tr>
                                             ))}
@@ -64,27 +63,26 @@ const MenuPage: React.FC = () => {
                                 </div>
 
                                 <div>
-                                    <h4 className="flex items-center text-gold font-bold uppercase text-xs tracking-[0.25em] mb-6">
-                                        <span className="w-2 h-2 rounded-full bg-gold mr-3"></span>
+                                    <h4 className="text-gold font-bold uppercase text-[11px] tracking-[0.3em] mb-6 border-b border-gold/20 pb-2">
                                         Churros y Jeringos
                                     </h4>
                                     <table className="w-full text-sm">
                                         <thead>
-                                            <tr className="text-[10px] uppercase tracking-widest text-stone/50 border-b border-chocolate/5">
-                                                <th className="text-left font-normal pb-3 pl-2">Producto</th>
+                                            <tr className="text-[10px] uppercase tracking-widest text-stone/40">
+                                                <th className="text-left font-normal pb-3">Producto</th>
                                                 <th className="text-right font-normal pb-3">Media</th>
-                                                <th className="text-right font-normal pb-3 pr-2">Entera</th>
+                                                <th className="text-right font-normal pb-3">Entera</th>
                                             </tr>
                                         </thead>
-                                        <tbody className="divide-y divide-chocolate/5">
+                                        <tbody className="divide-y divide-dotted divide-stone/20">
                                             {[
                                                 { name: 'Churros', half: '0,80 €', full: '1,20 €' },
                                                 { name: 'Jeringos', half: '0,80 €', full: '1,20 €' },
                                             ].map((item, idx) => (
-                                                <tr key={idx} className="group transition-colors hover:bg-gold/5">
-                                                    <td className="py-4 pl-2 text-stone font-medium group-hover:text-chocolate transition-colors">{item.name}</td>
-                                                    <td className="py-4 text-right font-serif text-lg text-stone/80">{item.half}</td>
-                                                    <td className="py-4 pr-2 text-right font-serif font-bold text-xl text-chocolate">{item.full}</td>
+                                                <tr key={idx} className="group hover:bg-gold/5 transition-colors cursor-text">
+                                                    <td className="py-3 text-stone group-hover:text-chocolate font-sans">{item.name}</td>
+                                                    <td className="py-3 text-right font-serif text-lg text-stone/70">{item.half}</td>
+                                                    <td className="py-3 text-right font-serif font-bold text-xl text-chocolate">{item.full}</td>
                                                 </tr>
                                             ))}
                                         </tbody>
@@ -93,60 +91,61 @@ const MenuPage: React.FC = () => {
                             </div>
 
                             {/* Column 2 */}
-                            <div className="space-y-10">
+                            <div className="space-y-12">
                                 <div>
-                                    <h4 className="flex items-center text-gold font-bold uppercase text-xs tracking-[0.25em] mb-6">
-                                        <span className="w-2 h-2 rounded-full bg-gold mr-3"></span>
+                                    <h4 className="text-gold font-bold uppercase text-[11px] tracking-[0.3em] mb-6 border-b border-gold/20 pb-2">
                                         Tostadas
                                     </h4>
                                     <table className="w-full text-sm">
                                         <thead>
-                                            <tr className="text-[10px] uppercase tracking-widest text-stone/50 border-b border-chocolate/5">
-                                                <th className="text-left font-normal pb-3 pl-2">Ingrediente</th>
+                                            <tr className="text-[10px] uppercase tracking-widest text-stone/40">
+                                                <th className="text-left font-normal pb-3">Ingrediente</th>
                                                 <th className="text-right font-normal pb-3">Media</th>
-                                                <th className="text-right font-normal pb-3 pr-2">Entera</th>
+                                                <th className="text-right font-normal pb-3">Entera</th>
                                             </tr>
                                         </thead>
-                                        <tbody className="divide-y divide-chocolate/5">
+                                        <tbody className="divide-y divide-dotted divide-stone/20">
                                             {[
                                                 { name: 'Aceite / Mantequilla', half: '0,60 €', full: '1,20 €' },
-                                                { name: 'Paté / Sobrasada / Mermelada', half: '0,70 €', full: '1,40 €' },
+                                                { name: 'Paté / Sobrasada', half: '0,70 €', full: '1,40 €' },
                                                 { name: 'Jamón York', half: '1,10 €', full: '1,90 €' },
                                                 { name: 'York y queso / Jamón', half: '1,40 €', full: '2,40 €' },
                                             ].map((item, idx) => (
-                                                <tr key={idx} className="group transition-colors hover:bg-gold/5">
-                                                    <td className="py-3 pl-2 text-stone font-medium group-hover:text-chocolate transition-colors">{item.name}</td>
-                                                    <td className="py-3 text-right font-serif text-lg text-stone/80">{item.half}</td>
-                                                    <td className="py-3 pr-2 text-right font-serif font-bold text-xl text-chocolate">{item.full}</td>
+                                                <tr key={idx} className="group hover:bg-gold/5 transition-colors cursor-text">
+                                                    <td className="py-3 text-stone group-hover:text-chocolate font-sans">{item.name}</td>
+                                                    <td className="py-3 text-right font-serif text-lg text-stone/70">{item.half}</td>
+                                                    <td className="py-3 text-right font-serif font-bold text-xl text-chocolate">{item.full}</td>
                                                 </tr>
                                             ))}
-                                            <tr><td colSpan={3} className="pt-3 text-[10px] uppercase tracking-widest text-gold text-right pr-2">* Extra pan especial +0,10€</td></tr>
+                                            <tr><td colSpan={3} className="pt-4 text-[10px] uppercase tracking-widest text-gold text-right opacity-80">* Extra pan especial +0,10€</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
 
                                 <div>
-                                    <h4 className="flex items-center text-gold font-bold uppercase text-xs tracking-[0.25em] mb-6">
-                                        <span className="w-2 h-2 rounded-full bg-gold mr-3"></span>
+                                    <h4 className="text-gold font-bold uppercase text-[11px] tracking-[0.3em] mb-6 border-b border-gold/20 pb-2">
                                         Dulces
                                     </h4>
-                                    <div className="space-y-4">
-                                        <div className="flex justify-between items-center group p-3 -mx-3 rounded-lg hover:bg-gold/5 transition-colors border-b border-chocolate/5 border-dashed">
-                                            <span className="text-stone group-hover:text-chocolate font-medium transition-colors">Gofres (2 ingredientes)</span>
-                                            <span className="font-serif font-bold text-xl text-chocolate">2,20 €</span>
-                                        </div>
-                                        <div className="flex justify-between items-center group p-3 -mx-3 rounded-lg hover:bg-gold/5 transition-colors border-b border-chocolate/5 border-dashed">
-                                            <span className="text-stone group-hover:text-chocolate font-medium transition-colors">Tortitas (2 ingredientes)</span>
-                                            <span className="font-serif font-bold text-xl text-chocolate">1,00 €</span>
-                                        </div>
-                                        <div className="p-4 bg-chocolate/5 rounded-xl border border-chocolate/5 mt-4">
-                                            <p className="text-xs text-stone italic text-center leading-relaxed">
-                                                <span className="font-bold not-italic uppercase text-[10px] tracking-widest text-chocolate block mb-2">Sabores Disponibles</span>
+                                    <div className="space-y-6">
+                                        {[
+                                            { name: 'Gofres (2 ingredientes)', price: '2,20 €' },
+                                            { name: 'Tortitas (2 ingredientes)', price: '1,00 €' },
+                                        ].map((item, idx) => (
+                                            <div key={idx} className="flex justify-between items-baseline group hover:bg-gold/5 p-2 -mx-2 rounded transition-colors cursor-text">
+                                                <span className="text-stone group-hover:text-chocolate font-sans">{item.name}</span>
+                                                <span className="flex-grow mx-4 border-b border-dotted border-stone/20 relative -top-1"></span>
+                                                <span className="font-serif font-bold text-xl text-chocolate">{item.price}</span>
+                                            </div>
+                                        ))}
+
+                                        <div className="bg-stone/5 p-4 rounded-none border-l-2 border-gold/50 mt-6 cursor-text">
+                                            <p className="text-xs text-stone leading-relaxed mb-2 font-sans">
+                                                <span className="font-bold uppercase text-[10px] tracking-widest text-chocolate block mb-1">Sabores</span>
                                                 Chocolate, Blanco, Caramelo, Fresa, Vainilla, Dulce de Leche, Nata.
                                             </p>
-                                            <div className="mt-3 pt-3 border-t border-chocolate/10 text-[10px] uppercase tracking-widest text-center text-gold font-bold">
-                                                Extra ingr.: 0,20€ <span className="mx-2">•</span> Helado: 0,50€
-                                            </div>
+                                            <p className="text-[10px] uppercase tracking-widest text-gold font-bold">
+                                                Extra: 0,20€ &middot; Helado: 0,50€
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
