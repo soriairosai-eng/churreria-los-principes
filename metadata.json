@@ -1,0 +1,7 @@
+{
+  "name": "Churrería Los Príncipes - El Ritual del Chocolate",
+  "description": "Plataforma digital de lujo para la mejor churrería de Córdoba. Tradición, artesanía y excelencia operativa en el Barrio de Fátima.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
