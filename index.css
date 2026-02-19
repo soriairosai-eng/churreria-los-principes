@@ -2,32 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    font-family: 'Montserrat', sans-serif;
-    @apply bg-[#F9F7F2] text-[#2D1B14];
-  }
-  h1, h2, h3, .font-serif {
-    font-family: 'Playfair Display', serif;
-  }
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
-@layer utilities {
-  .bg-chocolate { @apply bg-[#2D1B14]; }
-  .text-chocolate { @apply text-[#2D1B14]; }
-  .bg-gold { @apply bg-[#C5A059]; }
-  .text-gold { @apply text-[#C5A059]; }
-  .border-gold { @apply border-[#C5A059]; }
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
-::-webkit-scrollbar-track {
-  background: #F9F7F2;
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
-::-webkit-scrollbar-thumb {
-  background: #C5A059;
-  border-radius: 4px;
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+:root {
+  --foreground-rgb: 60, 47, 47;
+  /* #3C2F2F */
+  --background-start-rgb: 245, 240, 232;
+  /* #F5F0E8 */
+  --background-end-rgb: 245, 240, 232;
+}
+
+body {
+  color: #3C2F2F;
+  background: #F5F0E8;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+::selection {
+  background-color: #D4AF37;
+  /* brand-gold */
+  color: #3C2F2F;
+  /* brand-dark */
 }

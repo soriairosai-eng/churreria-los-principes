@@ -9,7 +9,7 @@ import MenuPage from './pages/MenuPage';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-[#F9F7F2]">
+      <div className="min-h-screen bg-brand-cream">
         <Header />
 
         <main>

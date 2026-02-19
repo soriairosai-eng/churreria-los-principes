@@ -1,66 +1,86 @@
-
 import React from 'react';
-
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <section id="inicio" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Cinematic Background Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+    <section id="inicio" className="relative h-screen min-h-[800px] w-full overflow-hidden flex items-center justify-center">
+      {/* Cinematic Background - Placeholder for Video Loop */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-brand-dark/40 z-10 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/20 z-10"></div>
+        {/* 
+                   Ideally, this would be a <video> tag. 
+                   Using a high-quality placeholder image for now that implies "fried in olive oil" warmth.
+                */}
+        <img
+          src="https://images.unsplash.com/photo-1624300603538-1207400f4116?q=80&w=2574&auto=format&fit=crop"
+          alt="Churros Artesanos"
+          className="w-full h-full object-cover animate-slow-zoom"
+        />
+      </div>
 
-      {/* Background Image - Boutique Atmosphere */}
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-105 animate-[slow-zoom_20s_infinite_alternate]"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop")',
-        }}
-      ></div>
+      <div className="relative z-20 container mx-auto px-6 text-center text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="mb-6 flex justify-center items-center space-x-4"
+        >
+          <span className="h-[1px] w-12 bg-brand-gold/60"></span>
+          <span className="text-brand-gold uppercase tracking-[0.3em] text-[11px] font-bold">Desde 1970</span>
+          <span className="h-[1px] w-12 bg-brand-gold/60"></span>
+        </motion.div>
 
-      <div className="relative z-20 text-center px-6 max-w-4xl">
-        <p className="text-[#C5A059] font-semibold tracking-[0.3em] uppercase mb-4 animate-fadeIn">
-          Desde Siempre en Córdoba
-        </p>
-        <h1 className="text-5xl md:text-8xl text-white font-serif mb-8 leading-tight animate-fadeInUp">
-          El Ritual de la Mañana, <br />
-          <span className="italic">Elevado</span>
-        </h1>
-        <p className="text-white/90 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed animate-fadeInUp delay-200">
-          En el corazón del Barrio de Fátima, transformamos agua, harina y fuego en una experiencia de lujo artesanal.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <Link to="/carta" className="bg-[#C5A059] text-[#2D1B14] px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:bg-white transition-all w-full sm:w-auto text-center">
-            Ver Carta Completa
-          </Link>
-          <a href="#artesania" className="border border-white text-white px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:bg-white hover:text-[#2D1B14] transition-all w-full sm:w-auto text-center">
-            Nuestra Historia
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="text-6xl md:text-8xl lg:text-9xl font-serif mb-8 leading-[0.9] tracking-tight"
+        >
+          El Ritual <br />
+          <span className="italic text-brand-gold">de la Mañana</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="text-lg md:text-xl font-light text-brand-cream/80 max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          Jeringos y churros firmados al momento. <br />
+          Fritos en Aceite de Oliva Virgen Extra.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6"
+        >
+          <a
+            href="#menu"
+            className="px-10 py-4 bg-brand-gold text-brand-dark rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(212,175,55,0.5)]"
+          >
+            Ver Carta
           </a>
-        </div>
+          <a
+            href="#story"
+            className="px-10 py-4 border border-white/20 text-white rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm"
+          >
+            Nuestro Legado
+          </a>
+        </motion.div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <svg className="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div>
-
-      <style>{`
-        @keyframes slow-zoom {
-          from { transform: scale(1.05); }
-          to { transform: scale(1.15); }
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        .animate-fadeIn { animation: fadeIn 1.5s ease-out forwards; }
-        .animate-fadeInUp { animation: fadeInUp 1s ease-out forwards; }
-        .delay-200 { animation-delay: 0.2s; }
-      `}</style>
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+      >
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
+      </motion.div>
     </section>
   );
 };

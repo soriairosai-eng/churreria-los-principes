@@ -9,15 +9,20 @@ export default {
     theme: {
         extend: {
             colors: {
-                chocolate: '#1C1917', // Warm Black
-                gold: '#CA8A04',      // Premium Gold
-                cream: '#FAFAF9',     // Warm White
-                stone: '#44403C',     // Dark Grey
+                'brand-dark': '#3C2F2F',   // Deep Chocolate
+                'brand-terra': '#C05D3C',  // Warm Terracotta
+                'brand-cream': '#F5F0E8',  // Soft Ivory
+                'brand-olive': '#5A6A4E',  // Olive Accents
+                'brand-gold': '#D4AF37',   // Metallic Gold
+                'brand-black': '#1a1a1a',  // Rich Black for text
             },
             fontFamily: {
-                serif: ['"Cormorant Garamond"', 'serif'],
-                sans: ['Montserrat', 'sans-serif'],
+                serif: ['"Playfair Display"', 'serif'],
+                sans: ['Inter', 'sans-serif'],
             },
+            backgroundImage: {
+                'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
+            }
         },
     },
     plugins: [],
