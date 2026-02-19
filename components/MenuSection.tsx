@@ -15,9 +15,6 @@ const MenuSection: React.FC = () => {
     <section id="menu" className="py-24 bg-cream relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 px-4">
-          <h2 className="text-4xl md:text-5xl font-serif text-chocolate mb-6 animate-fadeInUp">Galería de <span className="italic text-gold">Sabores</span></h2>
-          <div className="w-16 h-[2px] bg-gold/50 mx-auto mb-10"></div>
-
           <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fadeInUp delay-200">
             {categories.map(cat => (
               <button
