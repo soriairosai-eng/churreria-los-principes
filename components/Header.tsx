@@ -31,9 +31,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 group">
-          <span className={`text-2xl font-serif font-bold tracking-tighter ${isScrolled || !isHomePage ? 'text-[#C5A059]' : 'text-white'}`}>
-            LOS PRÍNCIPES
-          </span>
+          <img src="/images/logo.jpg" alt="Churrería Los Príncipes" className="h-16 w-auto object-contain" />
         </Link>
 
         <nav className="hidden md:flex space-x-8 text-sm font-semibold tracking-widest uppercase">
