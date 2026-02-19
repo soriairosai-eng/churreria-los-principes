@@ -33,7 +33,7 @@ const MenuSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
           {filteredItems.map((item) => (
-            <div key={item.id} className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-chocolate/10 transition-all duration-500 ease-out flex flex-col h-full border border-stone/5 hover:border-gold/30">
+            <div key={item.id} className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-chocolate/10 transition-all duration-500 ease-out flex flex-col h-full border border-stone/10 hover:border-gold/40">
               <div className="relative h-56 overflow-hidden">
                 <img
                   src={item.image}

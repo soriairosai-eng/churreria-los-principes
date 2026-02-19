@@ -11,11 +11,11 @@ const MenuPage: React.FC = () => {
             {/* Cinematic Background Decoration - optional subtle grain or gradient */}
             <div className="fixed inset-0 pointer-events-none opacity-40 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-soft-light z-0"></div>
 
-            <div className="relative z-10 container mx-auto px-6 mb-0 text-center">
+            <div className="relative z-10 container mx-auto px-6 mb-16 text-center">
                 <span className="inline-block py-1 px-3 border border-gold/30 rounded-full text-gold font-medium tracking-[0.2em] uppercase text-[10px] mb-6 animate-fadeIn">
                     Nuestra Propuesta
                 </span>
-                <h1 className="text-6xl md:text-8xl font-serif text-chocolate mb-8 leading-none tracking-tight animate-fadeInUp">
+                <h1 className="text-6xl md:text-8xl font-serif text-chocolate mb-4 leading-none tracking-tight animate-fadeInUp">
                     Carta de <span className="italic text-gold/90">Especialidades</span>
                 </h1>
             </div>

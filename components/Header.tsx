@@ -26,12 +26,12 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || !isHomePage ? 'bg-[#2D1B14]/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || !isHomePage ? 'bg-chocolate/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-6 md:py-8'
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 group">
-          <img src="/images/logo.jpg" alt="Churrería Los Príncipes" className="h-16 w-auto object-contain" />
+          <img src="/images/logo.jpg" alt="Churrería Los Príncipes" className="h-10 md:h-16 w-auto object-contain transition-all duration-300" />
         </Link>
 
         <nav className="hidden md:flex space-x-8 text-sm font-semibold tracking-widest uppercase">
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
                 <a
                   key={item}
                   href={linkTarget}
-                  className={`hover:text-[#C5A059] transition-colors ${isScrolled || !isHomePage ? 'text-white/80' : 'text-white'}`}
+                  className={`hover:text-gold transition-colors ${isScrolled || !isHomePage ? 'text-white/90' : 'text-white'}`}
                 >
                   {item}
                 </a>
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
               <Link
                 key={item}
                 to={linkTarget}
-                className={`hover:text-[#C5A059] transition-colors ${isScrolled || !isHomePage ? 'text-white/80' : 'text-white'}`}
+                className={`hover:text-gold transition-colors ${isScrolled || !isHomePage ? 'text-white/90' : 'text-white'}`}
               >
                 {item}
               </Link>
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <a href="#contacto" className="bg-[#C5A059] text-[#2D1B14] px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#b38e4a] transition-all shadow-lg transform hover:-translate-y-1 inline-block">
+          <a href="#contacto" className="bg-gold text-chocolate px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gold/90 transition-all shadow-lg transform hover:-translate-y-1 inline-block">
             Reservar Mesa
           </a>
         </div>
