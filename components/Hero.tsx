@@ -13,8 +13,8 @@ const Hero: React.FC = () => {
                    Using a high-quality placeholder image for now that implies "fried in olive oil" warmth.
                 */}
         <img
-          src="https://images.unsplash.com/photo-1624300603538-1207400f4116?q=80&w=2574&auto=format&fit=crop"
-          alt="Churros Artesanos"
+          src="/images/hero-luxury.png"
+          alt="Churros Artesanos y Chocolate"
           className="w-full h-full object-cover animate-slow-zoom"
         />
       </div>
@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
           className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6"
         >
           <a
-            href="#menu"
+            href="/carta"
             className="px-10 py-4 bg-brand-gold text-brand-dark rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(212,175,55,0.5)]"
           >
             Ver Carta
