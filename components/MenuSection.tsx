@@ -5,10 +5,10 @@ import { MENU_ITEMS } from '../constants';
 const MenuSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('todos');
 
-  const categories = ['todos', 'churros', 'chocolate', 'especiales', 'bebidas'];
+  const categories = ['todos', 'churros', 'chocolate', 'tostadas', 'gofres', 'bebidas'];
 
-  const filteredItems = activeCategory === 'todos' 
-    ? MENU_ITEMS 
+  const filteredItems = activeCategory === 'todos'
+    ? MENU_ITEMS
     : MENU_ITEMS.filter(item => item.category === activeCategory);
 
   return (
@@ -17,17 +17,16 @@ const MenuSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif text-[#2D1B14] mb-4">La Carta Real</h2>
           <div className="w-24 h-1 bg-[#C5A059] mx-auto mb-8"></div>
-          
+
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${
-                  activeCategory === cat 
-                    ? 'bg-[#2D1B14] text-white shadow-lg' 
+                className={`px-8 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${activeCategory === cat
+                    ? 'bg-[#2D1B14] text-white shadow-lg'
                     : 'bg-white text-[#2D1B14] border border-[#2D1B14]/10 hover:border-[#C5A059]'
-                }`}
+                  }`}
               >
                 {cat === 'todos' ? 'Ver Todo' : cat}
               </button>
@@ -39,9 +38,9 @@ const MenuSection: React.FC = () => {
           {filteredItems.map((item) => (
             <div key={item.id} className="group bg-white overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
               <div className="relative h-72 overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
+                <img
+                  src={item.image}
+                  alt={item.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 bg-[#C5A059] text-[#2D1B14] px-4 py-1.5 text-sm font-bold shadow-lg">
@@ -61,7 +60,7 @@ const MenuSection: React.FC = () => {
                 </p>
                 <div className="pt-6 border-t border-gray-100">
                   <button className="text-[#C5A059] text-xs font-bold uppercase tracking-[0.2em] flex items-center group/btn">
-                    Más información 
+                    Más información
                     <svg className="w-4 h-4 ml-2 transform group-hover/btn:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

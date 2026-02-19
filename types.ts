@@ -11,7 +11,7 @@ export interface MenuItem {
   name: string;
   description: string;
   price: string;
-  category: 'churros' | 'chocolate' | 'especiales' | 'bebidas';
+  category: 'churros' | 'chocolate' | 'especiales' | 'bebidas' | 'tostadas' | 'gofres';
   image: string;
 }
 

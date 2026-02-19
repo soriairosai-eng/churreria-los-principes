@@ -1,8 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,28 +14,55 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle anchor links when not on home page
+  const getLink = (item: string) => {
+    const id = item.toLowerCase();
+    if (item === 'Inicio') return '/';
+    if (item === 'Carta') return '/carta';
+    return isHomePage ? `#${id}` : `/#${id}`;
+  };
+
+  const navItems = ['Inicio', 'Carta', 'Artesanía', 'Contacto'];
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-[#2D1B14]/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || !isHomePage ? 'bg-[#2D1B14]/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <span className={`text-2xl font-serif font-bold tracking-tighter ${isScrolled ? 'text-[#C5A059]' : 'text-white'}`}>
+        <Link to="/" className="flex items-center space-x-2 group">
+          <span className={`text-2xl font-serif font-bold tracking-tighter ${isScrolled || !isHomePage ? 'text-[#C5A059]' : 'text-white'}`}>
             LOS PRÍNCIPES
           </span>
-        </div>
+        </Link>
 
         <nav className="hidden md:flex space-x-8 text-sm font-semibold tracking-widest uppercase">
-          {['Inicio', 'Menú', 'Artesanía', 'Contacto'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className={`hover:text-[#C5A059] transition-colors ${isScrolled ? 'text-white/80' : 'text-white'}`}
-            >
-              {item}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const linkTarget = getLink(item);
+            const isExternal = linkTarget.startsWith('#') || linkTarget.startsWith('/#');
+
+            if (isExternal) {
+              return (
+                <a
+                  key={item}
+                  href={linkTarget}
+                  className={`hover:text-[#C5A059] transition-colors ${isScrolled || !isHomePage ? 'text-white/80' : 'text-white'}`}
+                >
+                  {item}
+                </a>
+              )
+            }
+
+            return (
+              <Link
+                key={item}
+                to={linkTarget}
+                className={`hover:text-[#C5A059] transition-colors ${isScrolled || !isHomePage ? 'text-white/80' : 'text-white'}`}
+              >
+                {item}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center space-x-4">
