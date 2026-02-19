@@ -1,14 +1,26 @@
-
 import { GoogleGenAI } from "@google/genai";
 import { BUSINESS_INFO, MENU_ITEMS } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+// Lazy initialization or safe check
+const getAIClient = () => {
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  if (!apiKey) {
+    console.warn("Gemini API Key is missing (VITE_GEMINI_API_KEY). Chatbot will be disabled.");
+    return null;
+  }
+  return new GoogleGenAI({ apiKey });
+};
 
 export const getMaestroRecommendation = async (userPrompt: string) => {
   try {
-    const model = 'gemini-3-flash-preview';
+    const ai = getAIClient();
+    if (!ai) {
+      return "Lo siento, el Maestro Chocolatero está descansando (Falta API Key). Por favor contacta al administrador.";
+    }
+
+    const model = 'gemini-1.5-flash'; // Updated model name
     const menuContext = MENU_ITEMS.map(item => `${item.name}: ${item.description} (${item.price})`).join('\n');
-    
+
     const systemInstruction = `
       Eres "El Maestro Chocolatero" de Churrería Los Príncipes en Córdoba. 
       Tu objetivo es recomendar el desayuno o merienda perfecta basada en los gustos del cliente.
@@ -29,17 +41,22 @@ export const getMaestroRecommendation = async (userPrompt: string) => {
       5. Responde en español de forma concisa.
     `;
 
-    const response = await ai.models.generateContent({
+    const result: any = await ai.models.generateContent({
       model,
-      contents: userPrompt,
+      contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
       config: {
         systemInstruction,
         temperature: 0.8,
         topP: 0.9,
       },
-    });
+    } as any);
 
-    return response.text || "Lo siento, mi mente está en el obrador. ¿En qué puedo ayudarte con tu desayuno?";
+    // Handle widespread SDK variations safely
+    const responseText = result.response ? result.response.text : result.text;
+    if (typeof responseText === 'function') {
+      return responseText();
+    }
+    return responseText || "El chocolate está listo.";
   } catch (error) {
     console.error("Gemini Error:", error);
     return "El chocolate está casi listo, pero ahora mismo no puedo atenderte. ¡Visítanos en el Barrio de Fátima!";
