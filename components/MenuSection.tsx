@@ -12,10 +12,10 @@ const MenuSection: React.FC = () => {
     : MENU_ITEMS.filter(item => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-24 bg-cream relative">
+    <section id="menu" className="pb-24 pt-4 bg-cream relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 px-4">
-          <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fadeInUp delay-200">
+        <div className="text-center mb-12 px-4">
+          <div className="flex flex-wrap justify-center gap-3 animate-fadeInUp delay-200">
             {categories.map(cat => (
               <button
                 key={cat}
