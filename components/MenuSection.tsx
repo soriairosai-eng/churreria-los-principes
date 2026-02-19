@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { MENU_ITEMS } from '../constants';
 
 const MenuSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('todos');
 
+  // Explicitly typing category names for display mapping if needed
   const categories = ['todos', 'churros', 'chocolate', 'tostadas', 'gofres', 'bebidas'];
 
   const filteredItems = activeCategory === 'todos'
@@ -12,20 +12,20 @@ const MenuSection: React.FC = () => {
     : MENU_ITEMS.filter(item => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-24 bg-[#F9F7F2]">
+    <section id="menu" className="py-24 bg-cream relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-[#2D1B14] mb-4">La Carta Real</h2>
-          <div className="w-24 h-1 bg-[#C5A059] mx-auto mb-8"></div>
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-4xl md:text-5xl font-serif text-chocolate mb-6 animate-fadeInUp">Galería de <span className="italic text-gold">Sabores</span></h2>
+          <div className="w-16 h-[2px] bg-gold/50 mx-auto mb-10"></div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fadeInUp delay-200">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${activeCategory === cat
-                  ? 'bg-[#2D1B14] text-white shadow-lg'
-                  : 'bg-white text-[#2D1B14] border border-[#2D1B14]/10 hover:border-[#C5A059]'
+                className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 border ${activeCategory === cat
+                  ? 'bg-chocolate text-gold border-chocolate shadow-lg transform scale-105'
+                  : 'bg-transparent text-stone border-stone/20 hover:border-gold hover:text-gold hover:bg-white/50'
                   }`}
               >
                 {cat === 'todos' ? 'Ver Todo' : cat}
@@ -34,37 +34,46 @@ const MenuSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
           {filteredItems.map((item) => (
-            <div key={item.id} className="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="relative h-48 overflow-hidden">
+            <div key={item.id} className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-chocolate/10 transition-all duration-500 ease-out flex flex-col h-full border border-stone/5 hover:border-gold/30">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                  loading="lazy"
                 />
-                <div className="absolute top-2 right-2 bg-[#C5A059] text-[#2D1B14] px-3 py-1 text-xs font-bold shadow-lg">
-                  {item.price}
+
+                {/* Price Tag - Liquid Glass Style */}
+                <div className="absolute top-3 right-3">
+                  <div className="relative overflow-hidden rounded-lg">
+                    <div className="absolute inset-0 bg-white/80 backdrop-blur-md"></div>
+                    <div className="relative px-3 py-1.5">
+                      <span className="font-serif font-bold text-chocolate text-sm">{item.price.split(' ')[0]}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2D1B14]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-chocolate/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <div className="p-5">
-                <div className="flex justify-between items-start mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#C5A059] mb-1 inline-block">
+
+              <div className="p-6 flex-grow flex flex-col relative">
+                <div className="mb-2">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gold inline-block py-0.5 px-2 border border-gold/20 rounded-sm bg-gold/5">
                     {item.category}
                   </span>
                 </div>
-                <h3 className="text-lg font-serif mb-2 text-[#2D1B14] leading-tight">{item.name}</h3>
-                <p className="text-gray-500 font-light text-xs leading-relaxed mb-4 line-clamp-3">
+                <h3 className="text-lg font-serif mb-2 text-chocolate leading-tight group-hover:text-gold transition-colors duration-300">{item.name}</h3>
+                <p className="text-stone/70 font-sans font-light text-xs leading-relaxed mb-4 line-clamp-3 flex-grow">
                   {item.description}
                 </p>
-                <div className="pt-4 border-t border-gray-100">
-                  <button className="text-[#C5A059] text-[10px] font-bold uppercase tracking-[0.2em] flex items-center group/btn">
-                    Ver más
-                    <svg className="w-3 h-3 ml-2 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
+
+                <div className="pt-4 border-t border-stone/10 flex justify-between items-center opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-[10px] uppercase tracking-widest text-stone font-medium">Detalles</span>
+                  <svg className="w-4 h-4 text-gold transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </div>
               </div>
             </div>

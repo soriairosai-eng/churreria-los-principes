@@ -9,11 +9,13 @@ export default {
     theme: {
         extend: {
             colors: {
-                chocolate: '#2D1B14',
-                gold: '#C5A059',
+                chocolate: '#1C1917', // Warm Black
+                gold: '#CA8A04',      // Premium Gold
+                cream: '#FAFAF9',     // Warm White
+                stone: '#44403C',     // Dark Grey
             },
             fontFamily: {
-                serif: ['"Playfair Display"', 'serif'],
+                serif: ['"Cormorant Garamond"', 'serif'],
                 sans: ['Montserrat', 'sans-serif'],
             },
         },
